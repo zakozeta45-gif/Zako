@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080b14">
+  <meta name="description" content="ZAKO PS4 Host — a bilingual, responsive console research and homebrew dashboard.">
+  <title>ZAKO PS4 HOST</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="ZAKO home"><span class="brand-mark">Z</span><span>ZAKO<span class="brand-sub"> / CONSOLE LAB</span></span></a>
+    <nav><a href="#host" data-i18n="navHost">HOST</a><a href="#tools" data-i18n="navTools">TOOLS</a><a href="#safety" data-i18n="navSafety">SAFETY</a></nav>
+    <div class="top-actions"><span class="live-dot"></span><span class="status-label" data-i18n="labOnline">LAB ONLINE</span><button class="lang-btn" id="langToggle">عربي</button></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="eyebrow">PLAYSTATION 4 · RESEARCH INTERFACE</span></div>
+        <h1>ZAKO <span>PS4</span><br><em data-i18n="heroTitle">EXPLOIT HOST</em></h1>
+        <p class="hero-text" data-i18n="heroText">A clean control center for firmware research, homebrew resources and console-side testing.</p>
+        <div class="hero-buttons"><a class="btn btn-primary" href="#host"><span data-i18n="openHost">OPEN HOST PANEL</span><span>↗</span></a><a class="btn btn-ghost" href="#tools" data-i18n="exploreTools">EXPLORE TOOLS</a></div>
+        <div class="hero-meta"><span><b>01</b> <span data-i18n="builtFor">BUILT FOR PS4 RESEARCH</span></span><span><b>02</b> <span data-i18n="bilingual">EN / AR INTERFACE</span></span></div>
+      </div>
+      <div class="console-art" aria-label="Abstract neon console illustration">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="console-glow"></div>
+        <div class="console"><div class="console-top"></div><div class="console-line"></div><div class="console-light"></div></div>
+        <div class="art-chip chip-top">ZK / 04</div><div class="art-chip chip-bottom">SYSTEM RESEARCH</div>
+        <div class="crosshair">＋</div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div><span class="stat-icon">◈</span><strong>PS4</strong><small data-i18n="platform">TARGET PLATFORM</small></div>
+      <div><span class="stat-icon">⌘</span><strong>EN / AR</strong><small data-i18n="languages">LANGUAGES</small></div>
+      <div><span class="stat-icon">◎</span><strong>LOCAL</strong><small data-i18n="mode">STATIC HOST UI</small></div>
+      <div><span class="stat-icon">✳</span><strong>V1.0</strong><small data-i18n="version">INTERFACE VERSION</small></div>
+    </section>
+
+    <section class="section" id="host">
+      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="hostEyebrow">CONSOLE CONFIGURATION</span></div><h2 data-i18n="hostTitle">HOST <span>PANEL</span></h2></div><p data-i18n="hostDesc">Select your system version to view the workspace status and relevant research notes.</p></div>
+      <div class="host-card">
+        <div class="host-card-head"><div><span class="small-label" data-i18n="firmwareLabel">SYSTEM FIRMWARE</span><h3 data-i18n="selectFirmware">Select firmware</h3></div><span class="pill"><i></i><span data-i18n="manualMode">MANUAL MODE</span></span></div>
+        <div class="selector-row"><label class="select-wrap"><span class="sr-only">Firmware version</span><select id="firmware"><option value="">Choose firmware / اختر إصدار النظام</option><option>5.05</option><option>6.72</option><option>7.02</option><option>7.55</option><option>9.00</option><option>9.03</option><option>9.60</option><option>10.00</option><option>10.01</option><option>11.00</option><option>Other / Unknown</option></select></label><button class="btn btn-primary" id="checkBtn" data-i18n="checkBtn">CHECK VERSION <span>→</span></button></div>
+        <div class="result-panel" id="resultPanel" aria-live="polite"><span class="result-symbol">⌁</span><div><strong data-i18n="awaiting">AWAITING SELECTION</strong><p data-i18n="awaitingText">Choose a firmware version to display general notes. This demo does not run exploits or send payloads.</p></div></div>
+        <div class="host-foot"><span>● <span data-i18n="offlineFirst">OFFLINE-FIRST INTERFACE</span></span><span data-i18n="noPayload">NO PAYLOADS INCLUDED</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="tools">
+      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="resources">RESEARCH RESOURCES</span></div><h2 data-i18n="toolsTitle">TOOLS & <span>MODULES</span></h2></div><p data-i18n="toolsDesc">A modular layout ready for verified resources and your own project links.</p></div>
+      <div class="module-grid">
+        <article class="module-card"><div class="module-icon blue">⌬</div><span class="module-index">MODULE / 01</span><h3>GoldHEN</h3><p data-i18n="goldhenText">Community homebrew-enabler information and compatibility notes.</p><span class="module-tag" data-i18n="infoOnly">INFORMATION ONLY</span></article>
+        <article class="module-card"><div class="module-icon violet">▧</div><span class="module-index">MODULE / 02</span><h3>Payload Library</h3><p data-i18n="payloadText">A future catalog for documented, trusted research payloads.</p><span class="module-tag" data-i18n="placeholder">READY FOR CONTENT</span></article>
+        <article class="module-card"><div class="module-icon cyan">⌘</div><span class="module-index">MODULE / 03</span><h3>Homebrew</h3><p data-i18n="homebrewText">Organize homebrew apps, tools and developer resources.</p><span class="module-tag" data-i18n="placeholder">READY FOR CONTENT</span></article>
+        <article class="module-card"><div class="module-icon pink">⌖</div><span class="module-index">MODULE / 04</span><h3>Firmware Notes</h3><p data-i18n="firmwareText">Keep version-specific notes, references and test records.</p><span class="module-tag" data-i18n="placeholder">READY FOR CONTENT</span></article>
+      </div>
+    </section>
+
+    <section class="safety section" id="safety"><div class="safety-icon">⛨</div><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="responsible">RESPONSIBLE RESEARCH</span></div><h2 data-i18n="safetyTitle">Know what you run.</h2><p data-i18n="safetyText">This starter site is a front-end interface only. It contains no exploit code, jailbreak binaries, game backups or payload files. Add only resources you have reviewed and are authorized to use. Console modification may affect stability, online access or warranty.</p></div></section>
+  </main>
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">Z</span><span>ZAKO<span class="brand-sub"> / CONSOLE LAB</span></span></a><span data-i18n="footer">INDEPENDENT COMMUNITY PROJECT · NOT AFFILIATED WITH SONY</span><span>© <span id="year"></span> ZAKO</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
