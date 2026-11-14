@@ -16,7 +16,7 @@ Bilingual, responsive PS4 firmware information portal. V3.1 adds a live, read-on
 - Preserves the existing firmware status categories.
 
 ## Firmware status policy
-- **Official**: listed on the official GoldHEN v2.4b18 release page (9.00, 9.60, 10.00, 10.01, 11.00).
+- **Official**: listed on the official GoldHEN v2.4b18 release page (9.00, 9.60, 10.00, 10.01, 10.50, 10.70, 10.71, 11.00), based on the official release history.
 - **Community report**: independent community host reports (13.52, 14.00, 14.02). This is not official GoldHEN support.
 - **Unverified**: versions with no exact verified entry in this portal. Do not infer compatibility from adjacent versions.
 
