@@ -33,14 +33,14 @@ function checkFirmware(){
  r.append(b,p);
  if(d){const a=document.createElement("a");a.href=d.src;a.target="_blank";a.rel="noopener";a.textContent=lang==="en"?"Open original source ↗":"فتح المصدر الأصلي ↗";r.appendChild(a)}
 }
-function safeDate(value){const d=new Date(value);return Number.isNaN(d.getTime())?"":d.toLocaleString(lang==="ar"?"ar-IQ":"en-GB",{dateStyle:"medium"})}
+function safeDate(value){const d=new Date(value);return Number.isNaN(d.getTime())?"":d.toLocaleDateString(lang==="ar"?"ar-IQ":"en-GB",{year:"numeric",month:"short",day:"numeric"})}
 function setReleaseStatus(key){const el=$("release-status");if(el)el.textContent=el.dataset[key]||key}
 function renderReleases(items,fromCache){
  const list=$("release-list");if(!list)return;list.replaceChildren();
  items.slice(0,5).forEach(item=>{
   const card=document.createElement("article");card.className="release-item";
   const title=document.createElement("b");title.textContent=item.name||item.tag_name||"GoldHEN release";
-  const meta=document.createElement("span");meta.textContent=[item.tag_name,safeDate(item.published_at)].filter(Boolean).join(" · ");
+  const meta=document.createElement("span");meta.textContent=[item.tag_name,safeDate(item.published_at),item.prerelease?(lang==="ar"?"نسخة تجريبية":"PRE-RELEASE"):""].filter(Boolean).join(" · ");
   const body=document.createElement("p");body.textContent=(item.body||"").replace(/\r/g,"").slice(0,360)|| (lang==="ar"?"لا توجد ملاحظات إصدار منشورة.":"No release notes provided.");
   const link=document.createElement("a");link.href=item.html_url||OFFICIAL_RELEASES_PAGE;link.target="_blank";link.rel="noopener";link.textContent=lang==="ar"?"عرض الإصدار الرسمي ↗":"View official release ↗";
   card.append(title,meta,body,link);list.appendChild(card);
@@ -55,7 +55,7 @@ async function loadReleases(){
   if(!response.ok)throw new Error("HTTP "+response.status);
   const data=await response.json();
   if(!Array.isArray(data)||!data.length)throw new Error("No release records");
-  const safe=data.slice(0,5).map(x=>({name:x.name,tag_name:x.tag_name,published_at:x.published_at,body:x.body,html_url:x.html_url}));
+  const safe=data.slice(0,5).map(x=>({name:x.name,tag_name:x.tag_name,published_at:x.published_at,body:x.body,html_url:x.html_url,prerelease:!!x.prerelease}));
   renderReleases(safe,false);
   try{localStorage.setItem(CACHE_KEY,JSON.stringify({savedAt:new Date().toISOString(),items:safe}))}catch(_){}
  }catch(error){
@@ -71,9 +71,8 @@ const statusText={
  "offline-cache":{en:"GitHub is unavailable. Showing saved data from the previous successful refresh.",ar:"GitHub غير متاح حالياً. نعرض البيانات المحفوظة من آخر تحديث ناجح."},
  error:{en:"Live update failed. No cached data is available.",ar:"فشل التحديث المباشر ولا توجد بيانات محفوظة."}
 };
-const originalSetStatus=setReleaseStatus;
-setReleaseStatus=function(key){const el=$("release-status");if(el)el.textContent=statusText[key]?.[lang]||key};
+setReleaseStatus=function(key){const el=$("release-status");if(el)el.textContent=(statusText[key]&&statusText[key][lang])||key};
 $("lang").addEventListener("click",()=>{lang=lang==="en"?"ar":"en";renderLanguage();if(sel.value)checkFirmware();loadReleases()});
 $("check").addEventListener("click",checkFirmware);sel.addEventListener("change",checkFirmware);
-$("refresh-releases")?.addEventListener("click",loadReleases);
+if($("refresh-releases"))$("refresh-releases").addEventListener("click",loadReleases);
 renderLanguage();loadReleases();
