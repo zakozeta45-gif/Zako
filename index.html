@@ -1,72 +1,9 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#080b14">
-  <meta name="description" content="ZAKO PS4 Host — a bilingual, responsive console research and homebrew dashboard.">
-  <title>ZAKO PS4 HOST</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
-  <header class="topbar">
-    <a class="brand" href="#" aria-label="ZAKO home"><span class="brand-mark">Z</span><span>ZAKO<span class="brand-sub"> / CONSOLE LAB</span></span></a>
-    <nav><a href="#host" data-i18n="navHost">HOST</a><a href="#tools" data-i18n="navTools">TOOLS</a><a href="#safety" data-i18n="navSafety">SAFETY</a></nav>
-    <div class="top-actions"><span class="live-dot"></span><span class="status-label" data-i18n="labOnline">LAB ONLINE</span><button class="lang-btn" id="langToggle">عربي</button></div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="hero-copy">
-        <div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="eyebrow">PLAYSTATION 4 · RESEARCH INTERFACE</span></div>
-        <h1>ZAKO <span>PS4</span><br><em data-i18n="heroTitle">EXPLOIT HOST</em></h1>
-        <p class="hero-text" data-i18n="heroText">A clean control center for firmware research, homebrew resources and console-side testing.</p>
-        <div class="hero-buttons"><a class="btn btn-primary" href="#host"><span data-i18n="openHost">OPEN HOST PANEL</span><span>↗</span></a><a class="btn btn-ghost" href="#tools" data-i18n="exploreTools">EXPLORE TOOLS</a></div>
-        <div class="hero-meta"><span><b>01</b> <span data-i18n="builtFor">BUILT FOR PS4 RESEARCH</span></span><span><b>02</b> <span data-i18n="bilingual">EN / AR INTERFACE</span></span></div>
-      </div>
-      <div class="console-art" aria-label="Abstract neon console illustration">
-        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-        <div class="console-glow"></div>
-        <div class="console"><div class="console-top"></div><div class="console-line"></div><div class="console-light"></div></div>
-        <div class="art-chip chip-top">ZK / 04</div><div class="art-chip chip-bottom">SYSTEM RESEARCH</div>
-        <div class="crosshair">＋</div>
-      </div>
-    </section>
-
-    <section class="stats">
-      <div><span class="stat-icon">◈</span><strong>PS4</strong><small data-i18n="platform">TARGET PLATFORM</small></div>
-      <div><span class="stat-icon">⌘</span><strong>EN / AR</strong><small data-i18n="languages">LANGUAGES</small></div>
-      <div><span class="stat-icon">◎</span><strong>LOCAL</strong><small data-i18n="mode">STATIC HOST UI</small></div>
-      <div><span class="stat-icon">✳</span><strong>V1.0</strong><small data-i18n="version">INTERFACE VERSION</small></div>
-    </section>
-
-    <section class="section" id="host">
-      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="hostEyebrow">CONSOLE CONFIGURATION</span></div><h2 data-i18n="hostTitle">HOST <span>PANEL</span></h2></div><p data-i18n="hostDesc">Select your system version to view the workspace status and relevant research notes.</p></div>
-      <div class="host-card">
-        <div class="host-card-head"><div><span class="small-label" data-i18n="firmwareLabel">SYSTEM FIRMWARE</span><h3 data-i18n="selectFirmware">Select firmware</h3></div><span class="pill"><i></i><span data-i18n="manualMode">MANUAL MODE</span></span></div>
-        <div class="selector-row"><label class="select-wrap"><span class="sr-only">Firmware version</span><select id="firmware"><option value="">Choose firmware / اختر إصدار النظام</option><option>5.05</option><option>6.72</option><option>7.02</option><option>7.55</option><option>9.00</option><option>9.03</option><option>9.60</option><option>10.00</option><option>10.01</option><option>11.00</option><option>Other / Unknown</option></select></label><button class="btn btn-primary" id="checkBtn" data-i18n="checkBtn">CHECK VERSION <span>→</span></button></div>
-        <div class="result-panel" id="resultPanel" aria-live="polite"><span class="result-symbol">⌁</span><div><strong data-i18n="awaiting">AWAITING SELECTION</strong><p data-i18n="awaitingText">Choose a firmware version to display general notes. This demo does not run exploits or send payloads.</p></div></div>
-        <div class="host-foot"><span>● <span data-i18n="offlineFirst">OFFLINE-FIRST INTERFACE</span></span><span data-i18n="noPayload">NO PAYLOADS INCLUDED</span></div>
-      </div>
-    </section>
-
-    <section class="section" id="tools">
-      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="resources">RESEARCH RESOURCES</span></div><h2 data-i18n="toolsTitle">TOOLS & <span>MODULES</span></h2></div><p data-i18n="toolsDesc">A modular layout ready for verified resources and your own project links.</p></div>
-      <div class="module-grid">
-        <article class="module-card"><div class="module-icon blue">⌬</div><span class="module-index">MODULE / 01</span><h3>GoldHEN</h3><p data-i18n="goldhenText">Community homebrew-enabler information and compatibility notes.</p><span class="module-tag" data-i18n="infoOnly">INFORMATION ONLY</span></article>
-        <article class="module-card"><div class="module-icon violet">▧</div><span class="module-index">MODULE / 02</span><h3>Payload Library</h3><p data-i18n="payloadText">A future catalog for documented, trusted research payloads.</p><span class="module-tag" data-i18n="placeholder">READY FOR CONTENT</span></article>
-        <article class="module-card"><div class="module-icon cyan">⌘</div><span class="module-index">MODULE / 03</span><h3>Homebrew</h3><p data-i18n="homebrewText">Organize homebrew apps, tools and developer resources.</p><span class="module-tag" data-i18n="placeholder">READY FOR CONTENT</span></article>
-        <article class="module-card"><div class="module-icon pink">⌖</div><span class="module-index">MODULE / 04</span><h3>Firmware Notes</h3><p data-i18n="firmwareText">Keep version-specific notes, references and test records.</p><span class="module-tag" data-i18n="placeholder">READY FOR CONTENT</span></article>
-      </div>
-    </section>
-
-    <section class="safety section" id="safety"><div class="safety-icon">⛨</div><div><div class="eyebrow"><span class="eyebrow-line"></span><span data-i18n="responsible">RESPONSIBLE RESEARCH</span></div><h2 data-i18n="safetyTitle">Know what you run.</h2><p data-i18n="safetyText">This starter site is a front-end interface only. It contains no exploit code, jailbreak binaries, game backups or payload files. Add only resources you have reviewed and are authorized to use. Console modification may affect stability, online access or warranty.</p></div></section>
-  </main>
-  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">Z</span><span>ZAKO<span class="brand-sub"> / CONSOLE LAB</span></span></a><span data-i18n="footer">INDEPENDENT COMMUNITY PROJECT · NOT AFFILIATED WITH SONY</span><span>© <span id="year"></span> ZAKO</span></footer>
-  <script src="app.js"></script>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#070b16"><meta name="description" content="ZAKO PS4 Console Lab — firmware compatibility research and GoldHEN release information."><title>ZAKO PS4 HOST V3.0</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cairo:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head>
+<body><header class="top"><a class="brand" href="#">Z<span>AKO</span><small> CONSOLE LAB</small></a><nav><a href="#checker" data-en="FIRMWARE" data-ar="الإصدارات">FIRMWARE</a><a href="#releases" data-en="GOLDHEN" data-ar="كولد هين">GOLDHEN</a><a href="#sources" data-en="SOURCES" data-ar="المصادر">SOURCES</a></nav><button id="lang">العربية</button></header>
+<main><section class="hero"><div><p class="eyebrow">PLAYSTATION 4 · RESEARCH INTERFACE · V3.0</p><h1>ZAKO PS4 <em>HOST</em></h1><h2 data-en="Firmware research & compatibility center" data-ar="مركز أبحاث الفيرموير والتوافق">Firmware research & compatibility center</h2><p data-en="A bilingual information portal covering PS4 firmware from 9.00 through 14.02, with room for future verified releases." data-ar="بوابة معلومات ثنائية اللغة لإصدارات PS4 من 9.00 إلى 14.02، قابلة للتحديث عند ظهور دعم موثق لإصدارات أحدث.">A bilingual information portal covering PS4 firmware from 9.00 through 14.02, with room for future verified releases.</p><a class="cta" href="#checker" data-en="CHECK FIRMWARE" data-ar="تحقق من إصدار جهازك">CHECK FIRMWARE</a></div><div class="orb"><div class="console">ZK / PS4<br><b>RESEARCH</b></div><span>● SYSTEM STATUS</span></div></section>
+<section class="stats"><div><b>9.00 — 14.02</b><small>FIRMWARE RANGE</small></div><div><b>AR / EN</b><small>LANGUAGES</small></div><div><b>V3.0</b><small>PORTAL VERSION</small></div><div><b>INFO ONLY</b><small>SAFE MODE</small></div></section>
+<section id="checker" class="section"><div class="sectionhead"><div><p class="eyebrow">01 / CONSOLE CONFIGURATION</p><h2 data-en="Firmware compatibility" data-ar="توافق إصدارات النظام">Firmware compatibility</h2></div><p data-en="Select the exact system version. Status labels distinguish official GoldHEN documentation from independent community reports." data-ar="اختر إصدار النظام بدقة. نفرّق بين توثيق GoldHEN الرسمي وتقارير المشاريع المجتمعية المستقلة.">Select the exact system version. Status labels distinguish official GoldHEN documentation from independent community reports.</p></div><div class="panel"><label for="fw" data-en="YOUR PS4 FIRMWARE" data-ar="إصدار نظام PS4">YOUR PS4 FIRMWARE</label><div class="controls"><select id="fw"><option value="">Select firmware / اختر الإصدار</option></select><button id="check" class="cta" data-en="CHECK STATUS" data-ar="تحقق من الحالة">CHECK STATUS</button></div><div id="result" class="result"><b data-en="Waiting for selection" data-ar="بانتظار الاختيار">Waiting for selection</b><p data-en="Choose a firmware to view the documented status. This portal does not run jailbreaks or modify your console." data-ar="اختر إصداراً لعرض الحالة الموثقة. هذه البوابة لا تشغّل الجيلبريك ولا تعدّل جهازك.">Choose a firmware to view the documented status. This portal does not run jailbreaks or modify your console.</p></div></div></section>
+<section id="releases" class="section"><div class="sectionhead"><div><p class="eyebrow">02 / RELEASE TRACKER</p><h2>GoldHEN <em>Releases</em></h2></div><p data-en="Official release information is kept separate from third-party builds and hosts." data-ar="معلومات الإصدارات الرسمية منفصلة عن النسخ والمضيفات التابعة لأطراف أخرى.">Official release information is kept separate from third-party builds and hosts.</p></div><div class="cards"><article class="card"><span class="tag official">OFFICIAL</span><h3>GoldHEN v2.4b18</h3><p data-en="Official release page lists firmware 5.05, 6.71/6.72, 9.00, 9.60, 10.00/10.01 and 11.00." data-ar="صفحة الإصدار الرسمية تذكر الإصدارات 5.05 و6.71/6.72 و9.00 و9.60 و10.00/10.01 و11.00.">Official release page lists firmware 5.05, 6.71/6.72, 9.00, 9.60, 10.00/10.01 and 11.00.</p><a href="https://github.com/GoldHEN/GoldHEN/releases" target="_blank" rel="noopener">Official release notes ↗</a></article><article class="card"><span class="tag community">COMMUNITY REPORT</span><h3>Afterglow · 13.52 / 14.00 / 14.02</h3><p data-en="An independent host repository reports these versions and references GoldHEN v2.4b18.14. This is not an official GoldHEN release or endorsement." data-ar="مستودع مستقل يذكر هذه الإصدارات ويشير إلى GoldHEN v2.4b18.14. هذا ليس إصداراً رسمياً من GoldHEN ولا اعتماداً من فريقه.">An independent host repository reports these versions and references GoldHEN v2.4b18.14. This is not an official GoldHEN release or endorsement.</p><a href="https://github.com/X-F1REBALL-X/ps4-jb" target="_blank" rel="noopener">Community project source ↗</a></article></div></section>
+<section id="sources" class="section"><div class="sectionhead"><div><p class="eyebrow">03 / VERIFIED REFERENCES</p><h2 data-en="Source desk" data-ar="مكتب المصادر">Source desk</h2></div><p data-en="Always open the original source and check its latest commit/release date before relying on compatibility claims." data-ar="افتح المصدر الأصلي دائماً وتحقق من تاريخ آخر تحديث أو إصدار قبل الاعتماد على ادعاءات التوافق.">Always open the original source and check its latest commit/release date before relying on compatibility claims.</p></div><div class="source-list"><a href="https://github.com/GoldHEN/GoldHEN/releases" target="_blank" rel="noopener">GoldHEN official releases ↗</a><a href="https://github.com/well0nez/afterglow-web" target="_blank" rel="noopener">Afterglow developer repository ↗</a><a href="https://github.com/X-F1REBALL-X/ps4-jb" target="_blank" rel="noopener">Community host reference ↗</a></div></section>
+<section class="notice"><b data-en="IMPORTANT — COMPATIBILITY IS NOT A GUARANTEE" data-ar="مهم — التوافق ليس ضماناً">IMPORTANT — COMPATIBILITY IS NOT A GUARANTEE</b><p data-en="A firmware appearing in a community project does not make it officially supported by GoldHEN. Unlisted versions remain unverified. Never update a console solely to obtain jailbreak support; compatibility can change and downgrades may not be available." data-ar="ظهور إصدار في مشروع مجتمعي لا يعني أن GoldHEN يدعمه رسمياً. الإصدارات غير المدرجة تبقى غير مؤكدة. لا تحدّث جهازك لمجرد الحصول على الجيلبريك؛ فقد يتغير التوافق وقد لا يتوفر الرجوع لإصدار أقدم.">A firmware appearing in a community project does not make it officially supported by GoldHEN. Unlisted versions remain unverified. Never update a console solely to obtain jailbreak support; compatibility can change and downgrades may not be available.</p></section></main><footer>ZAKO / CONSOLE LAB <span>INDEPENDENT COMMUNITY RESEARCH · NOT AFFILIATED WITH SONY</span></footer><script src="app.js"></script></body></html>

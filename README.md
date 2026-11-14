@@ -1,26 +1,28 @@
-# ZAKO PS4 HOST — Starter v1.0
+# ZAKO PS4 HOST V3.0
 
-A responsive bilingual (English/Arabic) static front-end starter for a PS4 research and homebrew resource host.
+Bilingual, responsive PS4 firmware information portal covering firmware entries from 9.00 through 14.02, with future additions possible.
 
 ## Files
-- `index.html` — page structure and content
-- `style.css` — responsive neon interface
-- `app.js` — language switcher and firmware selector interaction
+- `index.html` — page structure and sections
+- `style.css` — responsive neon theme
+- `app.js` — language switch and firmware status lookup
 
-## Run locally
-1. Extract the ZIP.
-2. Open `index.html` in a modern browser.
-3. No build tools or server are required for the preview.
+## Firmware status policy
+- **Official**: listed on the GoldHEN project's official v2.4b18 release page (9.00, 9.60, 10.00, 10.01, 11.00).
+- **Community report**: independent Afterglow host repository reports 13.52, 14.00 and 14.02 and references GoldHEN v2.4b18.14. This is not an official GoldHEN release or endorsement.
+- **Unverified**: versions with no exact verified entry in this portal. Do not infer compatibility from adjacent versions.
 
-## Publish free with GitHub Pages
-1. Create/sign in to a GitHub account.
-2. Create a public repository named `zako-ps4-host`.
-3. Upload `index.html`, `style.css`, and `app.js` to the repository root.
-4. Open **Settings → Pages**.
-5. Under **Build and deployment**, choose **Deploy from a branch**, select `main` and `/ (root)`, then Save.
-6. GitHub will show the public website URL in the Pages section after deployment finishes.
+These are research labels, not a guarantee that a customer's console will work. Recheck source commits and releases before updating claims.
 
-Alternative: drag the extracted folder into a new Netlify site using Netlify Drop.
+## Update later firmware versions
+Edit `versions` and `fwData` in `app.js`, then add a source URL and a clear status classification. Never mark a version official unless it appears in official GoldHEN documentation.
 
-## Important
-This is a front-end starter only. It intentionally includes no exploit implementation, jailbreak binaries, payload files, game backups, or automatic console actions. Firmware selection currently displays general placeholder notes; it is not a compatibility guarantee. Add only reviewed resources you are authorized to distribute and use. Never enter PSN credentials or other private account details into a third-party host.
+## Deploy to existing GitHub Pages repository
+1. Extract this ZIP.
+2. Upload `index.html`, `style.css`, `app.js`, and `README.md` to the root of your existing `Zako` repository.
+3. Replace the old files with the same names.
+4. Commit the changes to the `main` branch.
+5. Wait for GitHub Pages to redeploy. Your existing Pages URL remains unchanged.
+
+## Safety and scope
+Informational website only. It contains no exploit implementation, jailbreak binaries, payload files, or console modification functions. It does not activate GoldHEN. Independent community research project, not affiliated with Sony or the GoldHEN team.
